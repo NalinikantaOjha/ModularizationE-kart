@@ -65,8 +65,7 @@ open class ResponseHandler {
         }
     }
 
-    private fun getErrorMessage(code: Int): String {
-        Log.d("naliniError",code.toString())
+     fun getErrorMessage(code: Int): String {
         return when (code) {
             ErrorCodes.SocketTimeOut.code -> "Timeout"
             401 -> "Unauthorised"

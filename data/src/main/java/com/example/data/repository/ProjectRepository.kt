@@ -1,5 +1,6 @@
 package com.example.data.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.common.Resource
@@ -16,14 +17,13 @@ class  ProjectRepository @Inject constructor (private val apiService: ApiService
     val  responseliveData: LiveData<Resource<List<ResponseItem>>> get()=responseClass
     private val responseClass= MutableLiveData<Resource<List<ResponseItem>>>()
     private val responseHandler: ResponseHandler = ResponseHandler()
-    fun getProducts(){
+    fun getProducts(a:String){
          CoroutineScope(Dispatchers.IO).launch{
            try {
                val response: Response = apiService.getProducts()
                responseClass.postValue(responseHandler.handleSuccess(response))
            }  catch (e:Exception){
                responseClass.postValue(responseHandler.handleException(e))
-
            }
          }
 

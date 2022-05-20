@@ -12,7 +12,6 @@ import org.junit.Before
 import org.junit.Test
 
 class RepositoryTest {
-
     private lateinit var repository: ProjectRepository
     @MockK
     lateinit var product: Response
@@ -30,7 +29,7 @@ class RepositoryTest {
     }
     @Test
     fun getProducts(){
-        val rep= repository.getProducts()
+        val rep= repository.getProducts("")
         assertThat(rep).isNotNull()
     }
 }

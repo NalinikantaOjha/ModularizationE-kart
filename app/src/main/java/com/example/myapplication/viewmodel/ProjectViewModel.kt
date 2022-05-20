@@ -10,8 +10,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ProjectViewModel @Inject constructor (val repository: ProjectRepository):ViewModel(){
     val  responseliveData: LiveData<Resource<List<ResponseItem>>> get()=repository.responseliveData
-     fun getProducts(){
-         repository.getProducts()
+     fun getProducts(a:String){
+         repository.getProducts(a)
 
      }
 }
